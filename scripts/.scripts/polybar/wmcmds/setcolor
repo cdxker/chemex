@@ -1,0 +1,5 @@
+#!/bin/sh
+
+choice=$(ls ~/.config/colors | dmenu -i -p "Select Color Scheme:")
+cp ~/.config/colors/"$choice" ~/.config/colors/current.Xresources
+xrdb ~/.config/colors/current.Xresources

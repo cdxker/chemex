@@ -1,0 +1,368 @@
+; vim:ft=dosini
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+;background = #0f111a
+;background = #663b4252
+background = #2e3440
+;background = #3b4252
+background-alt = #373e4b
+;foreground = #e5e9f0
+foreground = #e5e9f0
+
+transparent = #00000000
+
+white = #e5e9f0
+black = #3b4252
+;red = #f78c6c
+red = #bf616a
+;green = #c3e88d
+green = #a3be8c
+;yellow = #f9dd6c
+yellow = #ebcb8b
+;blue = #2979ff
+;blue = #81a1c1
+blue = #88c0d0
+;magenta = #c792ea
+magenta = #b48ead
+;cyan = #89ddff
+;cyan = #81a1c1
+cyan = #88c0d0
+gray = #a6accd
+darkgray = #464b5d
+lightgray = #3b4252
+
+[bar/bar1]
+; monitor = ${env:MONITOR:DisplayPort-1}
+
+enable-ipc = true
+width = 100%
+height = 20
+;offset-x = 1%
+;offset-y = 1%
+;radius = 6.0
+fixed-center = true
+
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = {$xrdb:red}
+
+border-size = 0
+border-color = ${colors.white}
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+module-padding-left = 1
+module-padding-right = 1
+
+font-0 = FiraCode Nerd Font:size=8;1
+font-1 = Inconsolata Nerd Font:size=8;1
+font-2 = Noto Color Emoji:scale=10:style=Regular;2
+font-3 = Symbola:pixelsize=9;1
+
+; Other modules: xkeyboard filesystem xbacklight backlight-acpi cpu memory temperature powermenu weather
+modules-left = menu space bspwm 
+modules-center = date
+modules-right =  volume space xbacklight space cpu space battery battery1
+
+tray-position = right
+tray-padding = 10
+
+wm-restack = bspwm
+
+;override-redirect = true
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+[bar/bar2]
+monitor = HDMI2
+; monitor = DP1
+
+enable-ipc = true
+width = 100%
+height = 20
+;offset-x = 1%
+;offset-y = 1%
+;radius = 6.0
+fixed-center = true
+
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = {$xrdb:red}
+
+border-size = 0
+border-color = ${colors.white}
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+module-padding-left = 1
+module-padding-right = 1
+
+font-0 = FiraCode Nerd Font:size=8;1
+font-1 = Inconsolata Nerd Font:size=8;1
+font-2 = Noto Color Emoji:scale=10:style=Regular;2
+font-3 = Symbola:pixelsize=9;1
+
+; Other modules: xkeyboard filesystem xbacklight backlight-acpi cpu memory temperature powermenu weather
+modules-left = menu space bspwm 
+modules-center = date
+modules-right =  volume space xbacklight space cpu space battery battery1
+
+tray-position = right
+tray-padding = 10
+
+wm-restack = bspwm
+
+;override-redirect = true
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+[module/space]
+type = custom/text
+margin = 0
+padding = 0
+content = "|"
+
+[module/menu]
+type = custom/text
+
+content = "apps"
+content-background = #454545
+content-foreground = ${colors.yellow}
+
+content-padding = 5
+content-margin = 0
+click-left = rofi -show drun
+click-right = rofi -show window
+
+[module/bspwm]
+type = internal/bspwm
+
+; ws-icon-0 = main; 📖
+; ws-icon-1 = thrash; 🎆
+; ws-icon-2 = chat; 💬
+; ws-icon-3 = music; 🎹
+; ws-icon-default= 📄
+
+ws-icon-0 = main-1; 
+ws-icon-1 = web;
+ws-icon-2 = chat;
+ws-icon-3 = music; 
+ws-icon-4 = thrash; 
+ws-icon-5 = main-2; 
+ws-icon-default =  
+
+format = <label-state> <label-mode>
+label-monitor = %name%
+
+label-focused = "%icon% %name%"
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background-alt}
+;label-focused-underline= ${colors.blue}
+label-focused-padding = 2
+
+label-occupied = "%name%"
+; label-occupied = "%name%:/%icon%/"
+label-occupied-foreground = ${colors.cyan}
+label-occupied-padding = 2
+
+label-urgent = "%name%"
+; label-urgent = "%name%:!%index%!"
+label-urgent-background = ${colors.cyan}
+label-nrgent-padding = 2
+
+label-empty = 
+; label-empty = "%icon%"
+; label-empty-padding = 2
+label-empty-foreground = ${colors.lightgray}
+label-empty-padding = 0
+
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <label-time>
+
+click-left = $TERMINAL -e ncmpcpp
+click-right = mpc toggle
+
+label-song =  %artist% - %title%
+label-song-maxlen = 70
+label-song-ellipsis = true
+
+format-paused-foreground = ${colors.gray}
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = ﯧ
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.gray}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "💻 "
+format-prefix-foreground = ${colors.gray}
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "🧠 "
+format-prefix-foreground = ${colors.gray}
+format-underline = ${colors.darkcyan}
+label = %percentage_used%%
+
+[module/date]
+type = internal/date
+interval = 60
+
+date = 
+date-alt= %Y/%m/%d
+
+time = %I:%M %p
+time-alt = %H:%M
+
+
+; format-prefix = " "
+format-prefix-foreground = ${colors.gray}
+
+label = %date% %time%
+
+[module/volume]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume = "  %percentage%%"
+format-volume-prefix = "🔉"
+label-volume-foreground = ${colors.foreground}
+format-volume-prefix-foreground = ${colors.blue}
+
+format-muted = <label-muted>
+label-muted = "🔈" 
+label-muted-foreground = ${colors.red}
+
+
+[module/battery1]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 98
+
+;format-charging = Charging... <label-charging>
+format-charging = <animation-charging> <label-charging>
+
+;format-discharging = <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-prefix = ""
+format-full-prefix-foreground = ${colors.gray}
+
+ramp-capacity-0 = 
+ramp-charging-1 = 
+ramp-charging-2 = 
+ramp-charging-3 = 
+ramp-charging-4 = 
+ramp-charging-foreground = ${colors.gray}
+ramp-capacity-foreground = ${colors.gray}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.gray}
+animation-charging-framerate = 500
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+;format-charging = Charging... <label-charging>
+format-charging = <animation-charging> <label-charging>
+
+;format-discharging = <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-prefix = ""
+format-full-prefix-foreground = ${colors.gray}
+
+ramp-capacity-0 = 
+ramp-charging-1 = 
+ramp-charging-2 = 
+ramp-charging-3 = 
+ramp-charging-4 = 
+ramp-charging-foreground = ${colors.gray}
+ramp-capacity-foreground = ${colors.gray}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.gray}
+animation-charging-framerate = 500
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.darkmagenta}
+
+ramp-0 = 🌡
+ramp-1 = 🌡
+ramp-2 = 🌡
+ramp-3 = 🌡
+ramp-4 = 🌡
+ramp-foreground = ${colors.black}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over

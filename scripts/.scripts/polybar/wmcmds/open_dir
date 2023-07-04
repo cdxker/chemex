@@ -1,0 +1,14 @@
+#!/bin/sh
+
+bmdirs="${XDG_CONFIG_HOME:-$HOME/.config}/bmdirs"
+
+selection=$(cat $bmdirs | cut -d "	" -f "1"| dmenu -l 5 -p "Select a Workspace" )
+
+[ "$selection" != "" ] || exit
+
+choice=$(cat $bmdirs | grep "^$selection" | rev | cut -d "	" -f "1" | rev)
+echo "Hi $choice"
+
+notify-send "Opening workspace $choice"
+
+sh -c "cd $choice ; $TERMINAL"
