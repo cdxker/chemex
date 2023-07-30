@@ -73,10 +73,10 @@ font-1 = Inconsolata Nerd Font:size=8;1
 font-2 = Noto Color Emoji:scale=10:style=Regular;2
 font-3 = Symbola:pixelsize=9;1
 
-; Other modules: xkeyboard filesystem xbacklight backlight-acpi cpu memory temperature powermenu weather
-modules-left = menu space bspwm 
+; Other modules: xkeyboard filesystem backlight-acpixbacklight backlight-acpi cpu memory temperature powermenu weather
+modules-left = me menu space bspwm 
 modules-center = date
-modules-right =  volume space xbacklight space cpu space battery battery1
+modules-right =  volume space backlight-acpi space memory space battery battery1
 
 tray-position = right
 tray-padding = 10
@@ -89,7 +89,7 @@ scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
 [bar/bar2]
-monitor = HDMI2
+monitor = HDMI-1
 ; monitor = DP1
 
 enable-ipc = true
@@ -143,6 +143,12 @@ type = custom/text
 margin = 0
 padding = 0
 content = "|"
+
+[module/me]
+type = internal/ipc
+hook-0 = echo " $(whoami)"
+hook-1 = whoami
+initial = 2
 
 [module/menu]
 type = custom/text
@@ -232,7 +238,23 @@ bar-empty-foreground = ${colors.gray}
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
-card = intel_backlight
+card = acpi_video0
+format = <ramp> <label> <bar>
+
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-4 = 🌕
+ramp-3 = 🌔
+ramp-2 = 🌓
+ramp-1 = 🌒
+ramp-0 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = +
+bar-fill = =
+bar-empty = ─
 
 [module/cpu]
 type = internal/cpu
@@ -247,7 +269,7 @@ interval = 2
 format-prefix = "🧠 "
 format-prefix-foreground = ${colors.gray}
 format-underline = ${colors.darkcyan}
-label = %percentage_used%%
+label = %used% / %total%
 
 [module/date]
 type = internal/date
@@ -295,10 +317,10 @@ format-full-prefix = ""
 format-full-prefix-foreground = ${colors.gray}
 
 ramp-capacity-0 = 
-ramp-charging-1 = 
-ramp-charging-2 = 
-ramp-charging-3 = 
-ramp-charging-4 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 ramp-charging-foreground = ${colors.gray}
 ramp-capacity-foreground = ${colors.gray}
 
@@ -326,11 +348,10 @@ format-full-prefix = ""
 format-full-prefix-foreground = ${colors.gray}
 
 ramp-capacity-0 = 
-ramp-charging-1 = 
-ramp-charging-2 = 
-ramp-charging-3 = 
-ramp-charging-4 = 
-ramp-charging-foreground = ${colors.gray}
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.gray}
 
 animation-charging-0 = 

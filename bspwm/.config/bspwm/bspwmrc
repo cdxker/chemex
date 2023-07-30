@@ -5,7 +5,6 @@ wmname LG3D
 
 startup &
 sxhkd &
-~/.config/polybar/launch.sh &
 
 # xset r rate 300 50 &
 # xrdb ~/.config/colors/current.Xresources
@@ -13,7 +12,7 @@ sxhkd &
 
 if [ "$(bspc query -M | wc -l)" -eq "2" ]; then
   bspc monitor eDP1  -d small
-  bspc monitor HDMI2 -d main-1 main-2 3 4 5 trash 7 8 9
+  bspc monitor HDMI-1 -d main-1 main-2 3 4 5 trash 7 8 9
   ~/.config/polybar/launch2.sh &
 else
   bspc monitor -d main-1 main-2 3 4 5 thrash 7 8 chat music
@@ -49,7 +48,7 @@ bspc subscribe monitor | while read -r line; do
       monitor_add*|monitor_geometry*)
         if [ "$(bspc query -M | wc -l)" -eq "2" ]; then
           bspc monitor  eDP1  -d small
-          bspc monitor  DP1 -d main-1 main-2 3 4 5 trash 7 8 9
+          bspc monitor  HDMI-1 -d main-1 main-2 3 4 5 trash 7 8 9
           # bspc monitor  HDMI2 -d main-1 main-2 3 4 5 trash 7 8 9
           ~/.config/polybar/launch2.sh &
         else
