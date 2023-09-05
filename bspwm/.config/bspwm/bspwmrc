@@ -11,11 +11,11 @@ sxhkd &
 # xsetroot -cursor_name left_ptr
 
 if [ "$(bspc query -M | wc -l)" -eq "2" ]; then
-  bspc monitor eDP1  -d small
-  bspc monitor HDMI-1 -d main-1 main-2 3 4 5 trash 7 8 9
+  bspc monitor eDP-1  -d small
+  bspc monitor HDMI-1 -d main side docs 4 5 trash 7 music chat
   ~/.config/polybar/launch2.sh &
 else
-  bspc monitor -d main-1 main-2 3 4 5 thrash 7 8 chat music
+  bspc monitor -d main side docs 4 5 thrash 7 8 chat music
   ~/.config/polybar/launch.sh &
 fi
 
@@ -47,8 +47,8 @@ bspc subscribe monitor | while read -r line; do
   case $line in
       monitor_add*|monitor_geometry*)
         if [ "$(bspc query -M | wc -l)" -eq "2" ]; then
-          bspc monitor  eDP1  -d small
-          bspc monitor  HDMI-1 -d main-1 main-2 3 4 5 trash 7 8 9
+          bspc monitor eDP1  -d small
+          bspc monitor HDMI-1 -d main side docs 4 5 trash 7 music chat
           # bspc monitor  HDMI2 -d main-1 main-2 3 4 5 trash 7 8 9
           ~/.config/polybar/launch2.sh &
         else

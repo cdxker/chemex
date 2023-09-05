@@ -33,6 +33,7 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
 # Config file
 export ZDOTDIR="$HOME/.config/zsh"
+export OPENAI_API_KEY=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
 
 [ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
 
@@ -45,6 +46,7 @@ export ZDOTDIR="$HOME/.config/zsh"
 # Lanugage Includes
 . $HOME/.cargo/env
 
+export PATH="$PATH:/opt/depot_tools"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

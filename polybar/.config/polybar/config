@@ -171,12 +171,12 @@ type = internal/bspwm
 ; ws-icon-3 = music; 🎹
 ; ws-icon-default= 📄
 
-ws-icon-0 = main-1; 
-ws-icon-1 = web;
+ws-icon-0 = main; 
+ws-icon-1 = side;
 ws-icon-2 = chat;
 ws-icon-3 = music; 
 ws-icon-4 = thrash; 
-ws-icon-5 = main-2; 
+wc-icon-5 = docs;
 ws-icon-default =  
 
 format = <label-state> <label-mode>
@@ -189,7 +189,6 @@ label-focused-background = ${colors.background-alt}
 label-focused-padding = 2
 
 label-occupied = "%name%"
-; label-occupied = "%name%:/%icon%/"
 label-occupied-foreground = ${colors.cyan}
 label-occupied-padding = 2
 
@@ -198,11 +197,11 @@ label-urgent = "%name%"
 label-urgent-background = ${colors.cyan}
 label-nrgent-padding = 2
 
-label-empty = 
+label-empty =
 ; label-empty = "%icon%"
-; label-empty-padding = 2
-label-empty-foreground = ${colors.lightgray}
-label-empty-padding = 0
+label-empty-padding = 2
+label-empty-foreground = ${colors.cyan}
+# label-empty-padding = 0
 
 
 [module/mpd]
@@ -273,7 +272,7 @@ label = %used% / %total%
 
 [module/date]
 type = internal/date
-interval = 60
+interval = 1
 
 date = 
 date-alt= %Y/%m/%d

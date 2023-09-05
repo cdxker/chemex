@@ -1,0 +1,13 @@
+# "+" substitutes for `folder`
+set mbox_type=Maildir
+set folder=~/.mail/
+set record=+Sent
+set postponed=+Drafts
+set trash=+Trash
+set mail_check=2 # seconds
+
+# smtp
+source ~/docs/keys/mail
+set smtp_url=smtp://jake.s@arguflow.gg:nOQKcct6M8ZsvCJXUhpIpQ@127.0.0.1:1025
+set ssl_force_tls
+set ssl_starttls

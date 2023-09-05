@@ -63,9 +63,7 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 # fi
 # unset __conda_setup
 # # <<< conda initialize <<<
-
-
-autoload -U colors && colors	# Load colors
+autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 zstyle ':fzf-tab:complete::' extra-opts --preview=$extract'/home/fastfist/.scripts/hackerscripts/filePreview.sh $realpath'
@@ -84,6 +82,14 @@ zstyle ':fzf-tab:complete::' extra-opts --preview=$extract'/home/fastfist/.scrip
 # fi
 # unset __conda_setup
 # <<< conda initialize <<<
+
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[4~"   end-of-line
+bindkey  "^[[3~"  delete-char
+bindkey  "^[[6~"  history-beginning-search-backward
+bindkey  "^[[5~"  history-beginning-search-forward
 
 source ~/.zprofile
 

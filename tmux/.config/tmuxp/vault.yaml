@@ -1,0 +1,21 @@
+session_name: Vault
+start_directory: ~/work/Arguflow/ai-editor
+windows:
+  - window_name: logs
+    layout: tiled
+    panes:
+      - shell_command:
+        - cd ../vault
+        - yarn dev
+      - cargo watch -x run
+      - sudo docker compose up
+  - window_name: backend
+    layout: tiled
+    panes:
+      - nvim .
+  - window_name: frontend
+    layout: tiled
+    panes:
+      - shell_command:
+          - cd ../vault
+          - nvim .
