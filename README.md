@@ -1,8 +1,8 @@
-# chemex
-Dotfiles, the chemex to brewing a system
+# Dotfiles (chemex)
+The chemex to brewing my system
 
-How to use you may ask? Just use stow
-
+## How to install you may ask?
+Just use stow
 ```sh
 git clone https://github.com/fastfists/chemex --recursive
 cd chemex
@@ -17,9 +17,14 @@ git pull && git submodule update
 stow */
 ```
 
-Its so nice eh?
+Its so nice eh? Well there's a lot of programs that you will need to install the ones off the top of my head are 
+- neovim
+- bspwm
+- polybar
+- sxhkd
+Good luck with the rest
 
-Compiling sucky code
+## Compiling sucky code
 
 after stowing away the coffee
 ```
