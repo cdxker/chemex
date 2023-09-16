@@ -18,3 +18,13 @@ stow */
 ```
 
 Its so nice eh?
+
+Compiling sucky code
+
+after stowing away the coffee
+```
+cd suckBuilds/st/
+sudo make install
+cd ../dmenu
+sudo make install
+```
