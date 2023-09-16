@@ -22,6 +22,7 @@ Its so nice eh? Well there's a lot of programs that you will need to install the
 - bspwm
 - polybar
 - sxhkd
+
 Good luck with the rest
 
 ## Compiling sucky code
