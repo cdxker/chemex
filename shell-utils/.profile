@@ -33,7 +33,6 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
 # Config file
 export ZDOTDIR="$HOME/.config/zsh"
-export OPENAI_API_KEY=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
 
 [ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
 

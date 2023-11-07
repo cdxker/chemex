@@ -44,7 +44,7 @@ lightgray = #3b4252
 
 enable-ipc = true
 width = 100%
-height = 20
+height = 25
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 6.0
@@ -75,7 +75,7 @@ font-3 = Symbola:pixelsize=9;1
 
 ; Other modules: xkeyboard filesystem backlight-acpixbacklight backlight-acpi cpu memory temperature powermenu weather
 modules-left = me menu space bspwm 
-modules-center = date
+modules-center = date date2
 modules-right =  volume space backlight-acpi space memory space battery battery1
 
 tray-position = right
@@ -94,7 +94,7 @@ monitor = HDMI-1
 
 enable-ipc = true
 width = 100%
-height = 20
+height = 25
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 6.0
@@ -125,7 +125,7 @@ font-3 = Symbola:pixelsize=9;1
 
 ; Other modules: xkeyboard filesystem xbacklight backlight-acpi cpu memory temperature powermenu weather
 modules-left = menu space bspwm 
-modules-center = date
+modules-center = date date2
 modules-right =  volume space xbacklight space cpu space battery battery1
 
 tray-position = right
@@ -275,7 +275,7 @@ type = internal/date
 interval = 1
 
 date = 
-date-alt= %Y/%m/%d
+date-alt= " %Y/%m/%d"
 
 time = %I:%M %p
 time-alt = %H:%M
@@ -284,7 +284,13 @@ time-alt = %H:%M
 ; format-prefix = " "
 format-prefix-foreground = ${colors.gray}
 
-label = %date% %time%
+label = CST%date% %time%
+
+[module/date2]
+type = custom/script
+interval = 1
+
+exec = echo -n "CEST " | cat - <(TZ=Europe/Paris date +%I:%M\ %p)
 
 [module/volume]
 type = internal/pulseaudio

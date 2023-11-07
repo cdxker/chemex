@@ -1,4 +1,4 @@
-#files: 843	version: 5.9
+#files: 848	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -319,13 +319,13 @@ _comps=(
 'evim' '_vim'
 'evince' '_evince'
 'ex' '_vi'
-'exa' '_exa'
 'exec' '_exec'
 'expand' '_unexpand'
 'export' '_typeset'
 'express' '_webbrowser'
 'extcheck' '_java'
 'extractres' '_psutils'
+'eza' '_eza'
 'fakeroot' '_fakeroot'
 'false' '_nothing'
 'fc' '_fc'
@@ -397,6 +397,7 @@ _comps=(
 'gchown' '_chown'
 'gchroot' '_chroot'
 'gcksum' '_cksum'
+'gcloud' '_gcloud'
 'gcmp' '_cmp'
 'gcomm' '_comm'
 'gcore' '_gcore'
@@ -1268,6 +1269,7 @@ _comps=(
 'tdr' '_devtodo'
 'tee' '_tee'
 'telnet' '_telnet'
+'terraform' '_terraform'
 'tex' '_tex'
 'texi2any' '_texinfo'
 'texi2dvi' '_texinfo'
@@ -1323,6 +1325,7 @@ _comps=(
 'type' '_which'
 'typeset' '_typeset'
 'udevadm' '_udevadm'
+'udisksctl' '_udisks2'
 'ulimit' '_ulimit'
 'uml_mconsole' '_uml'
 'uml_moo' '_uml'
@@ -1462,6 +1465,7 @@ _comps=(
 'wipefs' '_wipefs'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
+'wpctl' '_wpctl'
 'write' '_users_on'
 'www' '_webbrowser'
 'xargs' '_xargs'
@@ -1696,19 +1700,20 @@ bindkey '^[~' _bash_complete-word
 autoload -Uz _mutt-wizard.zsh _black _blackd _bluetoothctl _bootctl \
             _bspc _busctl _bw _bwrap _cargo \
             _checkupdates _code _coredumpctl _curl _docker \
-            _downgrade _email-notmuch _exa _firewalld _gh \
-            _hostnamectl _journalctl _just _kernel-install _libinput \
-            _localectl _loginctl _machinectl _meson _mpv \
-            _mullvad _netctl _networkctl _ngrok _ninja \
-            _notmuch _oomctl _paccache _pacdiff _pacignore \
-            _paclist _paclog-pkglist _pacman _pacscripts _pacsearch \
-            _pacsort _pactree _parallel _pass _pkgfile \
-            _playerctl _poetry _polybar _polybar_msg _pulseaudio \
-            _rankmirrors _resolvectl _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes \
-            _sd_unit_files _shtab _systemctl _systemd _systemd-analyze \
-            _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run \
-            _systemd-tmpfiles _timedatectl _tldr _tmuxp _udevadm \
-            _updpkgsums _yay _zathura _cdr _all_labels \
+            _downgrade _email-notmuch _eza _firewalld _gcloud \
+            _gh _hostnamectl _journalctl _just _kernel-install \
+            _libinput _localectl _loginctl _machinectl _meson \
+            _mpv _mullvad _netctl _networkctl _ngrok \
+            _ninja _notmuch _oomctl _paccache _pacdiff \
+            _pacignore _paclist _paclog-pkglist _pacman _pacscripts \
+            _pacsearch _pacsort _pactree _parallel _pass \
+            _pkgfile _playerctl _poetry _polybar _polybar_msg \
+            _pulseaudio _rankmirrors _rclone _resolvectl _sd_hosts_or_user_at_host \
+            _sd_machines _sd_outputmodes _sd_unit_files _shtab _systemctl \
+            _systemd _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn \
+            _systemd-path _systemd-run _systemd-tmpfiles _terraform _timedatectl \
+            _tldr _tmuxp _udevadm _udisks2 _updpkgsums \
+            _wpctl _yay _zathura _cdr _all_labels \
             _all_matches _alternative _approximate _arg_compile _arguments \
             _bash_completions _cache_invalid _call_function _combination _complete \
             _complete_debug _complete_help _complete_help_generic _complete_tag _comp_locale \
