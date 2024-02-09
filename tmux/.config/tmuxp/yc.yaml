@@ -1,0 +1,15 @@
+session_name: YC
+start_directory: ~/work/Arguflow/yc-companies
+windows:
+  - window_name: node
+    layout: tiled
+    panes:
+      - yarn dev
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim .
+  - window_name: zsh
+    layout: tiled
+    panes:
+      - . venv/bin/activate

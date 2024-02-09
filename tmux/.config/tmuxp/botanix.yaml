@@ -1,0 +1,14 @@
+session_name: Botanix
+start_directory: ~/work/Botanix/botanix
+windows:
+  - window_name: logs
+    layout: tiled
+    panes:
+      - docker compose up
+      - 
+  - window_name: backend
+    layout: tiled
+    panes:
+      - nvim .
+  - window_name: downs
+    layout: tiled

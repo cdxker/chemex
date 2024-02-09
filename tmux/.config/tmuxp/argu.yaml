@@ -1,0 +1,22 @@
+session_name: Arguflow
+start_directory: ~/work/Arguflow/trieve
+windows:
+  - window_name: logs
+    layout: tiled
+    panes:
+      - cd server; up keycloak; cargo watch -x run
+      - cd server; cargo run --bin ingestion-microservice
+      - cd ../trieve-dashboard; yarn dev
+      - cd search; yarn dev
+  - window_name: backend
+    layout: tiled
+    panes:
+      - cd server; nvim .
+  - window_name: frontend
+    layout: tiled
+    panes:
+      - cd search; node a; nvim .
+  - window_name: dashboard
+    layout: tiled
+    panes:
+      - cd ../trieve-dashboard; node a; nvim .
