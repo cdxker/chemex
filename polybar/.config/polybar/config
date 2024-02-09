@@ -75,7 +75,7 @@ font-3 = Symbola:pixelsize=9;1
 
 ; Other modules: xkeyboard filesystem backlight-acpixbacklight backlight-acpi cpu memory temperature powermenu weather
 modules-left = me menu space bspwm 
-modules-center = date date2
+modules-center = date4 date2 date date3
 modules-right =  volume space backlight-acpi space memory space battery battery1
 
 tray-position = right
@@ -125,7 +125,7 @@ font-3 = Symbola:pixelsize=9;1
 
 ; Other modules: xkeyboard filesystem xbacklight backlight-acpi cpu memory temperature powermenu weather
 modules-left = menu space bspwm 
-modules-center = date date2
+modules-center = date4 date2 date date3
 modules-right =  volume space xbacklight space cpu space battery battery1
 
 tray-position = right
@@ -277,20 +277,32 @@ interval = 1
 date = 
 date-alt= " %Y/%m/%d"
 
-time = %I:%M %p
+time = %H:%M
 time-alt = %H:%M
 
 
 ; format-prefix = " "
 format-prefix-foreground = ${colors.gray}
 
-label = CST%date% %time%
+label = PST%date% %time%
 
 [module/date2]
 type = custom/script
 interval = 1
 
-exec = echo -n "CEST " | cat - <(TZ=Europe/Paris date +%I:%M\ %p)
+exec = echo -n "CEST " | cat - <(TZ=Europe/Paris date +%H:%M\ %p)
+
+[module/date3]
+type = custom/script
+interval = 1
+
+exec = echo -n "HST " | cat - <(TZ=US/Hawaii date +%H:%M\ %p)
+
+[module/date4]
+type = custom/script
+interval = 1
+
+exec = echo -n "CST " | cat - <(TZ=US/Central date +%H:%M\ %p)
 
 [module/volume]
 type = internal/pulseaudio
