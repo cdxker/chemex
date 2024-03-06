@@ -10,12 +10,12 @@ windows:
   - window_name: REproxy
     layout: tiled
     panes:
-      - ssh -i ~/.ssh/arguflow dev@18.188.93.148
+      - ssh -i ~/.ssh/arguflow dev@52.15.122.41
   - window_name: server
     layout: tiled
     panes:
-      - ssh -i ~/.ssh/arguflow dev@18.189.1.237
+      - ssh -i ~/.ssh/arguflow dev@3.141.196.151
   - window_name: ingestion
     layout: tiled
     panes:
-      - ssh -i ~/.ssh/arguflow dev@3.141.103.114
+      - ssh -i ~/.ssh/arguflow dev@18.224.214.81      
