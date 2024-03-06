@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# In LARBS, ~/.config/wall.png is the location of the system wallpaper.  This
+# script, if given an argument, moves it there.  This script without an
+# argument sets ~/.config/wall.png as the wallpaper, which is required on login
+# if you don't want a black screen.
+#
+# You may also give a directory name to select a random image from that
+# directory as a wallpaper. Be careful that the directory only has images.
+bg_location="$HOME/.config/wall.png"
+modified_bg="$HOME/.config/wall-modified_bg.png"
+
+color=$(xrdb -query | grep background | grep "#......" | sed "s/\*\.background:\t//")
+
+[ -f "$1" ] && cp "$1" "$bg_location" && notify-send -i "$bg_location" "Wallpaper changed."
+
+[ -d "$1" ] && cp "$(find "$1"/*.{jpg,jpeg,png} -type f | shuf -n 1)" "$bg_location" && notify-send -i "$bg_location" "Random Wallpaper chosen."
+
+# magick convert "$bg_location" -background "$color" -alpha remove -alpha off "$modified_bg"
+feh --bg-tile "$bg_location" 
+# feh --bg-fill "$bg_location" 

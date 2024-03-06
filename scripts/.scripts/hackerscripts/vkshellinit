@@ -1,0 +1,3 @@
+#!/bin/sh
+
+[ -f ~/vulkan/setup-env.sh ] && echo "source ~/vulkan/setup-env.sh"

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+tmux-windowizer client 
+tmux-windowizer server 
+
+tmux-windowizer client ./tvui client
+
+tmux-windowizer server ./tvui server
