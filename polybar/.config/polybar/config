@@ -11,9 +11,15 @@
 [colors]
 ;background = #0f111a
 ;background = #663b4252
+; NORD V
 background = #2e3440
+; GRUVBOX V
+# background = #928374
 ;background = #3b4252
+; NORD V
 background-alt = #373e4b
+; GRUVRBOX V
+;background-alt = #282828
 ;foreground = #e5e9f0
 foreground = #e5e9f0
 
@@ -75,7 +81,7 @@ font-3 = Symbola:pixelsize=9;1
 
 ; Other modules: xkeyboard filesystem backlight-acpixbacklight backlight-acpi cpu memory temperature powermenu weather
 modules-left = me menu space bspwm 
-modules-center = date4 date2 date date3
+modules-center = date4 date2 date date3 date5
 modules-right =  volume space backlight-acpi space memory space battery battery1
 
 tray-position = right
@@ -125,7 +131,7 @@ font-3 = Symbola:pixelsize=9;1
 
 ; Other modules: xkeyboard filesystem xbacklight backlight-acpi cpu memory temperature powermenu weather
 modules-left = menu space bspwm 
-modules-center = date4 date2 date date3
+modules-center = date4 date2 date date3 date5
 modules-right =  volume space xbacklight space cpu space battery battery1
 
 tray-position = right
@@ -154,7 +160,7 @@ initial = 2
 type = custom/text
 
 content = "apps"
-content-background = #454545
+content-background = ${colors.background}
 content-foreground = ${colors.yellow}
 
 content-padding = 5
@@ -296,13 +302,19 @@ exec = echo -n "CEST " | cat - <(TZ=Europe/Paris date +%H:%M\ %p)
 type = custom/script
 interval = 1
 
-exec = echo -n "HST " | cat - <(TZ=US/Hawaii date +%H:%M\ %p)
+exec = echo -n "UTC " | cat - <(TZ=UTC date +%H:%M\ %p)
 
 [module/date4]
 type = custom/script
 interval = 1
 
 exec = echo -n "CST " | cat - <(TZ=US/Central date +%H:%M\ %p)
+
+[module/date5]
+type = custom/script
+interval = 1
+
+exec = echo -n "EAT " | cat - <(TZ=Africa/Nairobi date +%H:%M\ %p)
 
 [module/volume]
 type = internal/pulseaudio
