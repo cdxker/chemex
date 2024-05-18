@@ -1,0 +1,55 @@
+#!/bin/sh 
+#
+# 9:30AM CEST
+# Arg from Pipe
+# Arg from Front
+# Arg from Pipe or Front Front, Tab seperated, #
+#
+# $ srm Name Name Number 214-402-8404 email fdenzell@gmail.com twitter @handle \t Name Name Reddit @reddit site https://github.com
+# Add to existing user or [New] 
+#
+# Added New Touch
+#
+#
+#
+# $ srm twittter @twt
+# Add to existing user or [New] 
+#                             fzf Users of all the Users
+# Fuzzy type search box |_______________________________________|
+# 
+# enter user
+#
+# Conflict? Resolve. ( or just punt and don't care )
+#
+# Types of srm arguments available 
+# ... wait this doesn't even matter. It could be infinite...
+#
+#
+#
+# Infinite number of arguments
+# Folder level Type "Scopes"
+# 
+#
+# |_Aryn Team ----> Formatting Rule B
+# |   |__Deals
+# |   |    |__Trieve Deal
+# |   |    |__Moodys
+# |   |
+# |   |__Investors
+# |   |     |__ ??????
+# |   |     |__ ??????
+# |   |     |__ ??????
+# |   |
+# |_Trieve Team ----> Formatting Rule B
+# |   |__Deals
+# |   |    |__Lumina Deal
+# |   |    |__Glimmer Deal
+# |   |
+# |   |__Investors
+# |   |     |__Root Ventures
+# |   |     |__Y Combinator
+# |   |     |__Soma Capital
+# |
+# |
+#
+# srm to only returns back names, not fulll customer details? (prevent scraping)

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+lockin() { \
+    bspc config border_width 1
+    bspc config window_gap 0
+    bspc config top_padding 0
+    glava -d &
+    }
+ 
+lockout() { \
+    bspc config window_gap 20
+    bspc config border_width 3
+    bspc config top_padding 25
+    killall glava
+    }
+
+([ -f ~/.config/lockedin ] && lockout && rm ~/.config/lockedin) || (lockin && touch ~/.config/lockedin)
+# case "$(printf "Lock in its hacking time\\nAlright time out\\n" | dmenu -l 6 -i -p "Lock in or out")" in
+# 	"Lock in its hacking time") lockin ;;
+# 	"Alright time out") lockout ;;
+# esac

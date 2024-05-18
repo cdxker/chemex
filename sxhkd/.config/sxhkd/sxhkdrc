@@ -214,7 +214,7 @@ super + z
     setcolor
 
 super + v
-    bspc node -o 0.8; bspc node -p south; $TERMINAL cava;
+    lockin
 
 super + b
 	i=$(bspc query -N -n "focused.floating");\
