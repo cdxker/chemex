@@ -5,8 +5,9 @@ windows:
     layout: tiled
     panes:
       - cd server; up keycloak; cargo watch -x run
-      - cd server; cargo run --bin ingestion-microservice
-      - cd ../trieve-dashboard; yarn dev
+      - cd server; cargo run --bin ingestion-worker
+      - cd server; cargo run --bin file-worker
+      - cd dashboard; yarn dev
       - cd search; yarn dev
   - window_name: backend
     layout: tiled
@@ -19,4 +20,4 @@ windows:
   - window_name: dashboard
     layout: tiled
     panes:
-      - cd ../trieve-dashboard; node a; nvim .
+      - cd dashboard; node a; nvim .
