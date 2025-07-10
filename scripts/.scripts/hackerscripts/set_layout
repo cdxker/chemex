@@ -1,0 +1,20 @@
+#!/bin/nu
+
+
+let options = "tall
+wide
+grid
+"
+bsp-layout remove
+match (echo $options | dmenu) {
+    "tall" => {
+        bsp-layout once tall --master-size 0.60
+    },
+    "wide" => {
+        bsp-layout once wide --master-size 0.60
+    },
+    "grid" => {
+        bsp-layout set grid
+    },
+}
+

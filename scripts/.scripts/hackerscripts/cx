@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ~/work/Trieve/dedicated-deployments/
+ls **/init-kubectl.sh | fzf --tmux center | sh

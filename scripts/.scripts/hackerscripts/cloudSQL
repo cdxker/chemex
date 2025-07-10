@@ -1,0 +1,5 @@
+notify-send "Fetching Available CloudSQL instances"
+instance_name=$(gcloud sql instances list | tail -n +2 | dmenu -l 6 | awk '{print $1}')
+connection_name=$(gcloud sql instances describe $instance_name | grep connectionName | awk '{print $2}')
+
+cloud-sql-proxy --port 6432 $connection_name &
