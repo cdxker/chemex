@@ -1,0 +1,104 @@
+# macOS key bindings for yabai
+# adapted from the original sxhkdrc
+
+# terminal emulator
+super + Return
+    $TERMINAL
+
+# Ranger
+super + r
+    $TERMINAL $FILE
+
+# Open Browser
+super + w
+    $BROWSER
+
+# program launcher (requires an alternative like rofi or skhd's default)
+super + @space
+    open -a "Alfred"
+
+# quit/restart yabai
+super + alt + q
+    yabai --stop-service
+super + alt + r
+    yabai --restart-service
+
+# close window
+super + shift + c
+    yabai -m window --close
+super + alt + c
+    yabai -m window --close
+
+# toggle between bsp and stack layout
+super + m
+    if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "bsp" ]; then \ 
+        yabai -m space --layout stack; \ 
+    else \ 
+        yabai -m space --layout bsp; \ 
+    fi
+
+# swap with largest window
+super + g
+    yabai -m window --swap largest
+
+# toggle states
+super + t
+    yabai -m window --toggle float
+super + shift + t
+    yabai -m window --toggle split
+super + s
+    yabai -m window --toggle float
+super + f
+    yabai -m window --toggle zoom-fullscreen
+
+# sticky window
+super + ctrl + y
+    yabai -m window --toggle sticky
+
+# focus the window in the given direction
+super + {h,j,k,l}
+    yabai -m window --focus {west,south,north,east}
+
+# swap windows in the given direction
+super + shift + {h,j,k,l}
+    yabai -m window --swap {west,south,north,east}
+
+# focus next/previous window
+super + {n,shift + n}
+    yabai -m window --focus {next,prev}
+
+# focus next/previous space
+super + bracket{left,right}
+    yabai -m space --focus {prev,next}
+
+# focus or send to given space
+super + {1-9,0}
+    yabai -m space --focus {1-9,10}
+super + shift + {1-9,0}
+    yabai -m window --space {1-9,10}; yabai -m space --focus {1-9,10}
+
+# set insertion direction
+super + ctrl + {h,j,k,l}
+    yabai -m window --insert {west,south,north,east}
+
+# set split ratio
+super + ctrl + {1-9}
+    yabai -m window --ratio 0.{1-9}
+
+# mirror and rotate
+super + {comma,period}
+    yabai -m space --mirror {x-axis,y-axis}
+super + shift + {comma,period}
+    yabai -m space --rotate {90,270}
+
+# resize window
+super + alt + {h,j,k,l}
+    yabai -m window --resize {left:-20:0,bottom:0:20,top:0:-20,right:20:0}
+
+# contract window
+super + alt + shift + {h,j,k,l}
+    yabai -m window --resize {right:-20:0,top:0:20,bottom:0:-20,left:20:0}
+
+# move floating window
+super + {Left,Down,Up,Right}
+    yabai -m window --move rel:{-20:0,0:20,0:-20,20:0}
