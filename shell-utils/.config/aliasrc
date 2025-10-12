@@ -18,7 +18,7 @@ alias ka="killall" \
 	lsp="pacman -Qett --color=always | less" \
 	ffmpeg="ffmpeg -hide_banner"\
 	l="ls"\
-	c="clear"\
+	c="claude"\
 	termdown="termdown -a -f doh"\
 	rm="rm -i"\
 	down="docker compose down"\

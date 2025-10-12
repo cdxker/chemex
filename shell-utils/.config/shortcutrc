@@ -14,6 +14,7 @@ argu="cd ~/work/Arguflow && ls -a" \
 bot="cd ~/work/Botanix/ && ls -a" \
 dep="cd ~/work/Arguflow/deploys/ && ls -a" \
 fl="cd ~/work/flex/ && ls -a" \
+mi="cd ~/work/mintlify/ && ls -a" \
 bf="$EDITOR ~/.config/bmfiles" \
 bd="$EDITOR ~/.config/bmdirs" \
 cfa="$EDITOR ~/.config/aliasrc" \
